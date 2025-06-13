@@ -1,0 +1,18 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\begin{document}
+\section*{Invoice \#{{ invoice['id'] }}}
+User: {{ invoice['username'] }}
+\\
+
+\begin{tabular}{lrrr}
+\hline
+Product & Qty & Unit Price & Total \\
+\hline
+{% for item in invoice['items'] %}
+{{ item['name'] }} & {{ item['quantity'] }} & {{ "%.2f"|format(item['unitPrice']) }} & {{ "%.2f"|format(item['quantity'] * item['unitPrice']) }} \\
+{% endfor %}
+\hline
+& & \textbf{Grand Total:} & {{ "%.2f"|format(invoice['grand_total']) }} \\
+\end{tabular}
+\end{document}

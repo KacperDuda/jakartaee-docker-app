@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd"
+             version="3.2">
+  <persistence-unit name="invoicesPU" transaction-type="RESOURCE_LOCAL">
+    <class>com.example.entity.User</class>
+    <class>com.example.entity.Invoice</class>
+    <class>com.example.entity.InvoiceItem</class>
+    <properties>
+      <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
+      <!-- file-based H2 in /opt/tomee/data/invoices.* -->
+      <property name="jakarta.persistence.jdbc.url"
+                value="jdbc:h2:file:/opt/tomee/data/invoices;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE"/>
+      <property name="jakarta.persistence.jdbc.user" value="sa"/>
+      <property name="jakarta.persistence.jdbc.password" value=""/>
+      <!-- on first start it will create the schema, on subsequent runs it will keep it -->
+      <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
+    </properties>
+  </persistence-unit>
+</persistence>

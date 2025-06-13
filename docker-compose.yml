@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+
+  web:
+    build: ./web-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - pdf
+    environment:
+      PDF_SERVICE_URL: http://pdf:5000/generate
+    volumes:
+      - invoices-data:/opt/tomee/data
+
+  pdf:
+    build: ./pdf-service
+    ports:
+      - "5000:5000"
+
+volumes:
+  invoices-data:
