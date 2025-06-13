@@ -17,7 +17,7 @@ This project contains all source code and configuration needed to build and run 
 
 1. **Clone the repository:**
     ```bash
-    git clone <repository-url>
+    git clone git@github.com:KacperDuda/jakartaee-docker-app.git
     cd ZTI_project_2
     ```
 
