@@ -1,4 +1,4 @@
-# ZTI Project 2
+# ZTI Project
 
 This project contains all source code and configuration needed to build and run a multi-service application using Docker Compose.
 
